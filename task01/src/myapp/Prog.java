@@ -29,11 +29,14 @@ public class Prog {
             String tempLine;
             while ((tempLine = tempRead.readLine()) != null) {
 
+
                 // replace <<ABC>> with elements of string-array 
                 String outputLine = tempLine;
                 Pattern patternA = Pattern.compile("<<(\\w+)>>");
                 Matcher matcherA = patternA.matcher(tempLine);
                 // find the Pattern, then Match upon, while true
+
+                int i = 0;
                 while (matcherA.find()) {
                     String replaceMents = matcherA.group(1);
 
@@ -41,7 +44,6 @@ public class Prog {
                     //int position = outputLine.indexOf(replaceMents);
                     // int indexReplace =  Integer.valueOf(replaceMents);
 
-                    int i = 0;
                     outputLine = outputLine.replaceAll("<<" + replaceMents + ">>", csvWords[i]);
                     i+=1;
 
